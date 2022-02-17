@@ -111,16 +111,15 @@ Camp Management System
 >
 > •Handling documents
 >
-> oapplications to camp\
-> opayments\
-> onotices of acceptance\
-> oarrival instruction packets\
+>   oapplications to camp\
+>   opayments\
+>   onotices of acceptance\
+>   oarrival instruction packets\
 > •Processing refunds and post-acceptance issues 
 > •Dealing with "first day" issues
->
-> ocheck-in of campers\
-> oassignment of campers to bunkhouses oassignment of campers to
-> "tribes"
+>   ocheck-in of campers\
+>   oassignment of campers to bunkhouses oassignment of campers to
+>   "tribes"
 >
 > The director has chosen to defer all elaboration of the software,
 > including connection to the Internet and interconnection with other
