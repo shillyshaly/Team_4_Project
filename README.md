@@ -115,8 +115,8 @@ Camp Management System
 > opayments\
 > onotices of acceptance\
 > oarrival instruction packets\
-> •Processing refunds and post-acceptance issues •Dealing with "first
-> day" issues
+> •Processing refunds and post-acceptance issues 
+> •Dealing with "first day" issues
 >
 > ocheck-in of campers\
 > oassignment of campers to bunkhouses oassignment of campers to
@@ -193,8 +193,8 @@ Camp Management System
 > The system should support the clerk in doing her/his work, but it
 > should also provide basic reporting for the clerk and the Director:
 >
-> •Info about applications, payments, acceptances, refunds, etc. •Info
-> about "first day" activities
+> •Info about applications, payments, acceptances, refunds, etc. 
+> •Info about "first day" activities
 >
 > Such information can be provided in tabular or graphic form.
 >
