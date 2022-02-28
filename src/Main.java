@@ -7,7 +7,8 @@ public class Main{
     public static void main(String[] args) throws ParseException {
 
 //        int exitFlag = 0;
-        DocManagement doc = new DocManagement();
+        DocManagement doc;
+        doc = new DocManagement();
         doc.startMenu();
 //        while(exitFlag == 0) {
 //            //ask menu

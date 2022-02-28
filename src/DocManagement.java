@@ -9,18 +9,43 @@ public class DocManagement {
     //notice of acceptance
     //arrival instruction packets
     int maleCount = 0;
-    int femaleCount = 36;
+    int femaleCount = 0;
+    String name, gender;
+    int age;
+
+    public DocManagement()
+    {
+
+        this.name = name;
+        this.gender = gender;
+        this.age = age;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+
 
     public void startMenu() throws ParseException {
         int exitFlag = 0;
-        DocManagement doc = new DocManagement();
+        int i = 0;
+        DocManagement doc[] = new DocManagement[71];
         while(exitFlag == 0) {
             //ask menu
             System.out.println("****************************\n" +
-                    "* 1. start new application *\n" +
-                    "* 2. in prog...            *\n" +
-                    "* 3. in prog...            *\n" +
-                    "* 4. exit                  *\n" +
+                    "* 1. Start new application *\n" +
+                    "* 2. View all applications Entered*\n" +
+                    "* 3. Remove an application in the System*\n" +
+                    "* 4. Exit                  *\n" +
                     "****************************\n");
             System.out.print("What would you like to do?: ");
             Scanner menuOption = new Scanner(System.in);
@@ -29,13 +54,81 @@ public class DocManagement {
             switch (mOption) {
                 case 1:
                     System.out.println("\n");
-                    doc.startApplication();
+                    System.out.println("Starting new application...\n" +
+                            "*************************\n");
+                    doc[i] = new DocManagement();
+
+                    //enter name
+                    System.out.println("Enter name of applicant:");
+                    Scanner inputName = new Scanner(System.in);
+                    doc[i].name = inputName.nextLine();
+
+                    //enter gender
+                    System.out.print("Male/Female: ");
+                    Scanner inputGender = new Scanner(System.in);
+                    doc[i].gender = inputGender.nextLine();
+                    int rightInput =1;
+                    while(rightInput == 1)
+                {
+
+
+                    if (doc[i].gender.equals("Male")) {
+                        maleCount++;
+                        rightInput = 0;
+                    } else if (doc[i].gender.equals("Female")) {
+                        femaleCount++;
+                        rightInput = 0;
+                    } else {
+                        System.out.print("Unknown Input: Please enter either male or female");
+                    }
+
+                }
+                    if (maleCount > 35)
+                    {
+                        System.out.print("At Max capacity for Boys");
+                        maleCount--;
+                        break;
+                    }
+                    if (femaleCount > 35)
+                    {
+                        System.out.print("At max capacity for Girls");
+                        maleCount--;
+                        break;
+                    }
+
+
+                    //enter age
+                    System.out.print("Enter age: ");
+                    Scanner ageCheck = new Scanner(System.in);
+                    doc[i].age = ageCheck.nextInt();
+                    checkAge(age);
+
+
+                    //doc[i].startApplication();
+                    i++;
                     break;
                 case 2:
-                    System.out.println("2 in prog...");
+                    System.out.println("2 Viewing Applications");
+                    for (i = 0; i < 71; i++)
+                    {
+                        int num = i + 1;
+                        if(doc[i] == null)
+                        {
+                            System.out.println("\n\n\nNo more Applications have been summited.");
+                            break;
+                        }
+
+                        System.out.println("\n\n\nApplication " + num);
+
+                        System.out.println("Name: " + doc[i].name);
+                        System.out.println("Age: " + doc[i].age);
+                        System.out.println("Gender: " +doc[i].gender);
+                    }
+
                     break;
                 case 3:
-                    System.out.println("3 in prog...");
+                    System.out.println("3 Removing an application from the system");
+                    
                     break;
                 case 4:
                     System.out.println("exiting...");
@@ -55,14 +148,10 @@ public class DocManagement {
         //if no - send rej letter
         //if yes -  send acceptance letter, arrival packet
 
-        //enter gender
-        System.out.println("Starting new application...\n" +
-                "*************************\n");
 
-        System.out.print("Male/Female: ");
-        Scanner inputGender = new Scanner(System.in);
-        char gender = inputGender.next().charAt(0);
-        getGender(gender);
+
+
+
 
         //enter application date
         System.out.print("Enter application date: ");
@@ -84,30 +173,26 @@ public class DocManagement {
         char clrChk = clearedCheck.next().charAt(0);
         checkPayment(clrChk);
 
-        //enter age
-        System.out.print("Enter age: ");
-        Scanner ageCheck = new Scanner(System.in);
-        int age = ageCheck.nextInt();
-        checkAge(age);
+
 
     }//end startApplication
 
     //tallies the gender(male or female) and calls checkCount function
     //to check number of kids enrolled
-    public void getGender(char gender) throws ParseException {
-        char ch = Character.toLowerCase(gender);
-        if(ch == 'f'){
-            System.out.println("female test...");
-            femaleCount++;
-        }else if(ch == 'm'){
-            System.out.println("male test...");
-            maleCount++;
-        }else{
-            System.out.println("error...");
-            System.exit(0);
-        }
-        checkCount();
-    }
+   // public void getGender(char gender) throws ParseException {
+  //      char ch = Character.toLowerCase(gender);
+   //     if(ch == 'f'){
+   //         System.out.println("female test...");
+   //         femaleCount++;
+   //     }else if(ch == 'm'){
+   //         System.out.println("male test...");
+   //         maleCount++;
+   //     }else{
+   //         System.out.println("error...");
+   //         System.exit(0);
+   //     }
+    //    checkCount();
+   // }
 
     //function to check the count of females/males
     // and rejects if there are too many of either
@@ -172,13 +257,10 @@ public class DocManagement {
     //function to ask for age of applicant
     public void checkAge(int age) throws ParseException {
         if(age < 9 || age > 18){
-            sendReject();
-        }else if(age >= 9 && age <= 18){
-            //this would neeed to be changed
             sendAccept();
         }else{
-            System.out.println("something is wrong...");
-            checkAge(age);
+            //this would neeed to be changed
+            sendReject();
         }
     }
 
