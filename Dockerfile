@@ -1,4 +1,4 @@
-FROM openjdk:1.8.0_321
-COPY ./out/production/Practice/ /tmp
+FROM openjdk:8
+COPY out/production/Practice/ /tmp/
 WORKDIR /tmp
-ENTRYPOINT ["java","Main"]
+CMD java Main

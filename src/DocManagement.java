@@ -68,7 +68,7 @@ public class DocManagement {
                     doc[i] = new DocManagement();
 
                     //enter name
-                    System.out.print("Enter name of applicant:");
+                    System.out.print("Enter name of applicant: ");
                     Scanner inputName = new Scanner(System.in);
                     doc[i].name = inputName.nextLine();
 
@@ -76,14 +76,14 @@ public class DocManagement {
                     System.out.print("Male/Female: ");
                     Scanner inputGender = new Scanner(System.in);
                     doc[i].gender = inputGender.nextLine();
-                    int rightInput = 1;
-                    while (rightInput == 1) {
+                    int isCorrect = 1;
+                    while (isCorrect == 1) {
                         if (doc[i].gender.toLowerCase().equals("male")) {
                             maleCount++;
-                            rightInput = 0;
+                            isCorrect = 0;
                         } else if (doc[i].gender.toLowerCase().equals("female")) {
                             femaleCount++;
-                            rightInput = 0;
+                            isCorrect = 0;
                         } else {
                             System.out.print("Unknown Input: Please enter either male or female");
                         }
@@ -159,11 +159,11 @@ public class DocManagement {
                     i++;
                     break;
                 case 2:
-                    System.out.println("2 Viewing Applications");
+                    System.out.println("2. Viewing Applications");
                     for (i = 0; i < 71; i++) {
                         int num = i + 1;
                         if (doc[i] == null) {
-                            System.out.println("\n\n\nNo more Applications have been summited.");
+                            System.out.println("\n\n\nNo more Applications have been summited.\n");
                             break;
                         }
 
@@ -176,7 +176,7 @@ public class DocManagement {
 
                     break;
                 case 3:
-                    System.out.println("3 Removing an application from the system");
+                    System.out.println("3. Removing an application from the system");
 
                     break;
                 case 4:

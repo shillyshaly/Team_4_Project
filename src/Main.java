@@ -6,7 +6,6 @@ import java.util.*;
 public class Main{
     public static void main(String[] args) throws ParseException {
 
-//        int exitFlag = 0;
         DocManagement doc;
         doc = new DocManagement();
         doc.startMenu();
